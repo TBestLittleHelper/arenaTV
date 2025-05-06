@@ -1,7 +1,16 @@
 {
-	"name": "arenaTV",
+	"name": "arenatv",
 	"version": "1.0.0",
+	"type": "module",
 	"scripts": {
-		"build": "tsc && node copy-static.js"
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"chessground": "^9.1.1"
+	},
+	"devDependencies": {
+		"vite": "^6.3.5"
 	}
 }
