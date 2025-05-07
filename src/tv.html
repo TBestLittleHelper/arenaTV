@@ -9,13 +9,17 @@
 </head>
 <body style="background-color: wheat;  text-align: center; font-family: Arial, sans-serif;">
 	<div style="width: 10%; float: left;  height: 100vh;">
-		<div style="font-size: larger; font-weight: bolder; white-space: nowrap;display: inline-block;" >Arena name</div>
-		<table id="standings" style="width: 100%; border-collapse: collapse;">
+		<div id="arenaName" style="font-size: larger; font-weight: bolder; white-space: nowrap;display: inline-block;" >Arena name</div>
+		<table id="standingsTable" style="width: 100%; border-collapse: collapse;">
+			<thead>
 			<tr>
-				<th>00:55:10</th>
-				<th>Username</th>
-				<th>Points</th>
+				<th id="arenaTimeLeft">00:55:10</th>
+				<th id="username">Username</th>
+				<th id="score">Points</th>
 			</tr>
+			</thead>
+			  <tbody id="standingsBody"></tbody>
+
 			</table>
 	</div>
 	<h1>Welcome to Arena TV</h1>
