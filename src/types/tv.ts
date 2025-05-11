@@ -1,3 +1,17 @@
+export type PlayerStandings = {
+	players: Player[];
+};
+
+export type Player = {
+	name: string;
+	flairImageURL: string;
+	score: number;
+	ratingClass: RatingClass;
+}
+
+export type RatingClass = 'u1400' | 'u2000' | 'master' | 'legendary';
+
+
 export type ArenaResultPlayer = {
 	rank: number;
 	score: number;

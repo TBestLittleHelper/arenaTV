@@ -1,8 +1,9 @@
-import { ArenaInfo, ArenaResultPlayer } from './types/tv';
+import { ArenaInfo, Player } from './types/tv';
 import { Chessground } from 'chessground';
 import { Config } from 'chessground/config';
+import { createPlayer } from './player';
 
-let standings: { flairImageURL: string; name: string; score: number; }[] = [];
+let standings: Player[] = [];
 
 const arneaName = document.getElementById("arenaName") as HTMLDivElement;
 const arenaTimeLeft = document.getElementById("arenaTimeLeft") as HTMLTableCellElement;
@@ -28,15 +29,10 @@ arenaInfo
 		arneaName.innerText = data.fullName;
 		arenaTimeLeft.innerText = data.minutes.toString(); // todo count down etc.
 
-		const players = data.standing.players;
-		for (const player of players) {
-			standings.push({
-				flairImageURL: player.flair
-					? `https://lichess1.org/assets/flair/img/${player.flair}.webp`
-					: `https://lichess1.org/assets/flair/img/activity.chess-pawn.webp`,
-				name: player.name,
-				score: player.score
-			});
+		const arenaPlayers = data.standing.players;
+		for (const arenaPlayer of arenaPlayers) {
+			const player = createPlayer(arenaPlayer)
+			standings.push(player);
 		}
 	})
 	.catch(error => {
@@ -76,8 +72,9 @@ function updateStandings() {
 		const usernameCell = row.insertCell();
 		const pointsCell = row.insertCell();
 
-		flairCell.innerHTML = `<img src="${player.flairImageURL}" alt="Flair">`;
-		usernameCell.textContent = player.name;
-		pointsCell.textContent = player.score.toString();
+		console.log(player)
+		//		flairCell.innerHTML = `<img src="${player.flairImageURL}" alt="Flair">`;
+		//		usernameCell.textContent = player.name;
+		//		pointsCell.textContent = player.score.toString();
 	});
 }
