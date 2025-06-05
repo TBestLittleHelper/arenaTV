@@ -11,6 +11,7 @@
 		"chessground": "^9.1.1"
 	},
 	"devDependencies": {
+		"@types/node": "^22.15.29",
 		"vite": "^6.3.5"
 	}
 }
