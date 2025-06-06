@@ -1,7 +1,7 @@
 // Must have /api/ at the end of the URL
 function getBaseURL(): string | 'https://lichess.org/api/' {
 	if (process.env.NODE_ENV === 'development') {
-		return "";
+		return process.env.API_TARGET_URL as string;
 	}
 	return 'https://lichess.org/api/';
 }

@@ -1,3 +1,4 @@
 /node_modules
 /public/tournament
 notes
+.env
