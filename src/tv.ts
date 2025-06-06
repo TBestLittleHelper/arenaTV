@@ -2,6 +2,12 @@ import { ArenaInfo, Player } from './types/tv';
 import { Chessground } from 'chessground';
 import { Config } from 'chessground/config';
 import { createPlayer } from './player';
+import { getArenaInfoURL, getArenaResultsURL } from './api';
+
+const params = new URLSearchParams(window.location.search);
+const arenaID = params.get('arena') || 'Q956jcrq'; // Default arena ID if not provided
+console.log('arenaID :', arenaID);
+
 
 let standings: Player[] = [];
 
@@ -17,10 +23,8 @@ const config: Config = {
 };
 const board = Chessground(boardElement, config);
 
-
-// Arena id for test
-const arenaID = "Q956jcrq";
-const arenaInfo = fetch(`https://lichess.org/api/tournament/${arenaID}`);
+const arenaInfoURL = getArenaInfoURL(arenaID);
+const arenaInfo = fetch(arenaInfoURL);
 
 arenaInfo
 	.then(response => response.json())
@@ -42,15 +46,9 @@ arenaInfo
 
 console.log(arenaInfo);
 
+const resultsURL = getArenaResultsURL(arenaID, 10);
+let standingsStream = fetch(resultsURL);
 
-//Get ndjson from https://lichess.org/api/tournament/{id}/results
-
-const standingsStream = fetch(
-	`https://lichess.org/api/tournament/${arenaID}/results?nb=10`)
-
-async function readNDJSONStream(url: string) {
-	const response = await fetch(url);
-}
 
 console.table(standings);
 
@@ -58,7 +56,6 @@ window.addEventListener("DOMContentLoaded", () => {
 	updateStandings();
 	setInterval(updateStandings, 30000);
 });
-
 
 // todo only update the changed players
 // avoid loading flair images very time
@@ -74,7 +71,7 @@ function updateStandings() {
 
 		console.log(player)
 		//		flairCell.innerHTML = `<img src="${player.flairImageURL}" alt="Flair">`;
-		//		usernameCell.textContent = player.name;
-		//		pointsCell.textContent = player.score.toString();
+		usernameCell.textContent = player.name;
+		pointsCell.textContent = player.score.toString();
 	});
 }
