@@ -3,6 +3,8 @@
 ## Dev
 npm run dev
 
+It's recomended to point the API to a test env. You can change the target in api.ts
+
 ## Build
 npm run build
 
