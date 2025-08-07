@@ -1,0 +1,9 @@
+body {
+    border-color: red;
+    border-style: dashed;
+}
+
+#liveStandings {
+    border-color: rebeccapurple;
+    border-style: dashed;
+}
