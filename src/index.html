@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Configure Arena TV</title>
-	<link rel="stylesheet" href="css/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Arena TV</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body style="background-color: wheat;  text-align: center; font-family: Arial, sans-serif;">
-   <form id="arenaForm" action="tv.html" method="get">
-    <h1>Configure Arena TV</h1>
-    <div>
-        <label for="arena">Lichess Arena ID</label>
-        <input type="text" id="arena" name="arena" value="fYLvTqAM" required>
-        <input type="submit" value="Submit">
-    </div>
-</form>
+    <form id="arenaForm" action="tv.html" method="get">
+        <h1>Configure Arena TV</h1>
+        <div>
+            <label for="arena">Lichess Arena ID</label>
+            <input type="text" id="arena" name="arena" value="fYLvTqAM" required>
+            <br><br>
+            <label for="playerCardToggle">Show Player Card:</label>
+            <input type="checkbox" id="playerCardToggle" name="playerCard" value="true" checked>
+            <br><br>
+            <label for="liveCameraToggle">Save space for Live Camera:</label>
+            <input type="checkbox" id="liveCameraToggle" name="liveCamera" value="false" checked>
+            <br><br>
+            <label for="liveStandingsToggle">Show Live Standings:</label>
+            <input type="checkbox" id="liveStandingsToggle" name="liveStandings" value="true" checked>
+            <br><br>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
 
 </body>
+
 </html>
