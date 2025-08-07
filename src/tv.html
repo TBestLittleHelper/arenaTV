@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Arena TV</title>
 	<script type="module" src="tv.ts"></script>
 	<link rel="stylesheet" href="css/tv.css">
-		<link rel="stylesheet" href="css/chessground.css">
-		<link rel="stylesheet" href="css/chessground.brown.css">
-		<link rel="stylesheet" href="css/chessground.cburnett.css">
+	<link rel="stylesheet" href="css/debug.css">
+	<link rel="stylesheet" href="css/chessground.css">
+	<link rel="stylesheet" href="css/chessground.brown.css">
+	<link rel="stylesheet" href="css/chessground.cburnett.css">
 </head>
+
 <body style="background-color: wheat;  text-align: center; font-family: Arial, sans-serif;">
-	<div style="width: 10%; float: left;  height: 100vh;">
-		<div id="arenaName" style="font-size: larger; font-weight: bolder; white-space: nowrap;display: inline-block;" >Arena name</div>
+	<div id="liveStandings" style="width: 10%; float: left;  height: 100vh;">
+		<div id="arenaName" style="font-size: larger; font-weight: bolder; white-space: nowrap;display: inline-block;">
+			Arena name</div>
 		<table id="standingsTable" style="width: 100%; border-collapse: collapse;">
 			<thead>
-			<tr>
-				<th id="arenaTimeLeft">00:55:10</th>
-				<th id="username">Username</th>
-				<th id="score">Points</th>
-			</tr>
+				<tr>
+					<th id="arenaTimeLeft">00:55:10</th>
+					<th id="username">Username</th>
+					<th id="score">Points</th>
+				</tr>
 			</thead>
-			  <tbody id="standingsBody"></tbody>
+			<tbody id="standingsBody"></tbody>
 
-			</table>
+		</table>
 	</div>
 	<h1>Welcome to Arena TV</h1>
 	<div id="board" style="margin: auto;"></div>
 </body>
+
 </html>
