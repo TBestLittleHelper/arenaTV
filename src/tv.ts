@@ -1,11 +1,21 @@
 import { ArenaInfo, Player } from './types/tv';
+import { FeaturesConfig } from './types/config';
 import { Chessground } from 'chessground';
-import { Config } from 'chessground/config';
+import { Config as ChessgroundConfig } from 'chessground/config';
 import { createPlayer } from './player';
 import { getArenaInfoURL, getArenaResultsURL } from './api';
 
 const params = new URLSearchParams(window.location.search);
+const FeaturesConfig: FeaturesConfig = {
+	features: {
+		playerCard: params.get("playerCard") === "false" ? false : true,
+		liveStandings: params.get("liveStandings") === "false" ? false : true,
+		liveCamera: params.get("liveCamera") === "false" ? false : true,
+	}
+};
+
 const arenaID = params.get('arena') || 'Q956jcrq'; // Default arena ID if not provided
+
 console.log('arenaID :', arenaID);
 
 
@@ -16,7 +26,7 @@ const arenaTimeLeft = document.getElementById("arenaTimeLeft") as HTMLTableCellE
 
 const boardElement = document.getElementById('board')!;
 
-const config: Config = {
+const config: ChessgroundConfig = {
 	draggable: {
 		enabled: false
 	}
