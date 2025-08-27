@@ -1,7 +1,7 @@
-export interface Config {
+export interface FeaturesConfig {
     features: {
-        playerCard:boolean,
-        liveStandings:boolean,
-        liveCamera:boolean
+        playerCard: boolean,
+        liveStandings: boolean,
+        liveCamera: boolean
     }
 }

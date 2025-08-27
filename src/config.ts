@@ -1,6 +1,6 @@
-import { Config } from "./types/config"
+import { FeaturesConfig } from "./types/config"
 
-export const defaultConfig:Config = {
+export const defaultConfig: FeaturesConfig = {
     features: {
         playerCard: true,
         liveCamera: true,
